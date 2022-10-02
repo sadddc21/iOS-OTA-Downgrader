@@ -177,6 +177,11 @@ InstallDepends() {
         Echo "* Arch Linux repos do not ship python2, which is needed for ipwndfu"
         Echo "* If you need to use ipwndfu, python2 can be installed from the AUR"
         sudo pacman -Sy --noconfirm --needed base-devel bsdiff curl libimobiledevice openssh python udev unzip usbmuxd usbutils vim xmlstarlet zenity
+        
+    elif [[ $ID == "gentoo" ]] ); then
+        Echo "* Gentoo repos do not ship python2, which is needed for ipwndfu"
+        Echo "* If you need to use ipwndfu, python2 can be installed from the official page manually"
+        sudo emerge -av dev-util/bsdiff app-misc/ca-certificates app-pda/libimobiledevice dev-libs/openssl dev-lang/python sys-fs/udev app-pda/usbmuxd app-editors/vim app-text/xmlstarlet gnome-extra/zenity
 
     elif [[ -n $UBUNTU_CODENAME && $VERSION_ID == "2"* ]] ||
          (( DebianVer >= 11 )) || [[ $DebianVer == "sid" ]]; then
